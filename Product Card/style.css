@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ebebeb;
+}
+
+.main{
+    position: relative;
+}
+
+.card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background-color: #222;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fd424a;
+    transition: 0.5s ease-in-out;
+    clip-path: polygon(100% 0, 20% 0, 100% 85%);
+}
+
+.card:hover::before{
+    clip-path: polygon(100% 0, 0 0, 100% 40%);
+}
+
+.card::after{
+    content: 'Nike';
+    position: absolute;
+    top: 25%;
+    left: -20%;
+    font-size: 12em;
+    font-style: italic;
+    font-weight: bold;
+    color: rgba(225, 225, 225, 0.04);
+}
+
+.img-box{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 99;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+}
+
+.card:hover .img-box{
+    top: 5%;
+    transform: translateY(0%);
+}
+
+img{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    transform: scaleX(-1);
+    transform: rotate(-25deg) rotateY(180deg);
+}
+
+.details{
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    transition: 0.8s;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card:hover .details{
+    height: 220px;
+}
+
+.details h2{
+    font-size: 26px;
+    position: relative;
+    letter-spacing: 0.8px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.details .size,
+.details .color{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.card:hover .details .size,
+.card:hover .details .color{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.details .size h3,
+.details .color h3,
+.details .price h3{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-right: 5px;
+}
+
+.details .size span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.details .size span:hover{
+    background: #fd424a;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.details .color span{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.details .color span:nth-child(2){
+    background-color: #fd424a;
+}
+
+.details .color span:nth-child(3){
+background-color: rgb(0, 0, 0);
+}
+
+.details .color span:nth-child(4){
+    background-color: #fff;
+}
+
+.price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover .details .price{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.7s;
+}
+
+.details .price span{
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    padding-left: 5px;
+}
+
+.details .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link a{
+    text-decoration: none;
+    background: #fff;
+    font-weight: 600;
+    color: #222;
+    padding: 5px 15px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.card:hover .details .link a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
